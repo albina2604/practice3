@@ -1,6 +1,3 @@
-import math
-from os import remove
-
 n = int(input())
 pupils = []
 mark = 3
