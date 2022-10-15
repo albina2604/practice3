@@ -1,7 +1,14 @@
 n = int(input())
-pupils = dict()
+pupils = {}
 mark = 3
+output = []
+
 for _ in range(n):
-    pupil = [str(s) for s in input().split()]
-    pupils[pupil[0]] = [int(i) for i in pupil[1:]]
-    print(f'{pupil[0]} {sum(pupils[pupil[0]])/mark:.2f}')
+    pupil = input().split()
+    last_name = pupil[0]
+    pupils[last_name] = [int(i) for i in pupil[1:]]
+    avg_mark = sum(pupils[pupil[0]])/mark
+    output.append('%s %.2f' % (last_name, avg_mark))
+
+print('-' * 20)
+print('\n'.join(output))
