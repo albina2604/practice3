@@ -2,10 +2,15 @@ n = int(input())
 pupils = []
 mark = 3
 for _ in range(n):
-    pupil = [str(s) for s in input().split()]
+    pupil = input().split()
     pupil[1:] = [int(i) for i in pupil[1:]]
-    pupil.append(sum(pupil[1:])/mark)
-    pupils.insert(0, pupil)
-
-pupils_sorted = sorted(pupils)
-print(pupils_sorted)
+    pupil.insert(0, -sum(pupil[1:])/mark)
+    pupils.append(pupil)
+print('-' * 20)
+pupils.sort()
+for pupil in pupils:
+    print(
+        pupil[1],
+        ' '.join(str(mark) for mark in pupil[2:]),
+        f'{-pupil[0]:.2f}'
+    )
